@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 
-=======
 
 #Espacio donde cada integrante se presentará:
 
@@ -8,10 +6,9 @@ Integrante 1:
 Nombre : Armando Serna Contreras
 Correo : armandoserna4@hotmail.com
 Rol Principal: Desarrollador Principal. 
->>>>>>> development
 
 
-Integrante #:
+Integrante 5:
 Nombre: Daniel Steven Osorno Ortiz
 correo: danielosorno1996@gmail.com
 Rol designado: Desarrollador Principal
