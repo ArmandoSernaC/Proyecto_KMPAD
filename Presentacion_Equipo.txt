@@ -1,0 +1,7 @@
+
+#Espacio donde cada integrante se presentará:
+
+Integrante 1:
+Nombre : Armando Serna Contreras
+Correo : armandoserna4@hotmail.com
+Rol Principal: Desarrollador Principal. 
