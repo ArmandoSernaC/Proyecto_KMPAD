@@ -3,3 +3,4 @@ Nombre: Daniel Steven Osorno Ortiz
 correo: danielosorno1996@gmail.com
 Rol designado: Desarrollador Principal
 Rol secundario: Administrador de BD
+a
