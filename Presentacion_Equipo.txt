@@ -1,9 +1,4 @@
 <<<<<<< HEAD
-Integrante #:
-Nombre: Daniel Steven Osorno Ortiz
-correo: danielosorno1996@gmail.com
-Rol designado: Desarrollador Principal
-Rol secundario: Administrador de BD
 
 =======
 
@@ -14,3 +9,10 @@ Nombre : Armando Serna Contreras
 Correo : armandoserna4@hotmail.com
 Rol Principal: Desarrollador Principal. 
 >>>>>>> development
+
+
+Integrante #:
+Nombre: Daniel Steven Osorno Ortiz
+correo: danielosorno1996@gmail.com
+Rol designado: Desarrollador Principal
+Rol secundario: Administrador de BD
