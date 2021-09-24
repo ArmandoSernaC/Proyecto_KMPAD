@@ -1,6 +1,16 @@
+<<<<<<< HEAD
 Integrante #:
 Nombre: Daniel Steven Osorno Ortiz
 correo: danielosorno1996@gmail.com
 Rol designado: Desarrollador Principal
 Rol secundario: Administrador de BD
-a
+
+=======
+
+#Espacio donde cada integrante se presentará:
+
+Integrante 1:
+Nombre : Armando Serna Contreras
+Correo : armandoserna4@hotmail.com
+Rol Principal: Desarrollador Principal. 
+>>>>>>> development
