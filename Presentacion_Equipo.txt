@@ -7,6 +7,12 @@ Nombre : Armando Serna Contreras
 Correo : armandoserna4@hotmail.com
 Rol Principal: Desarrollador Principal. 
 
+Integrante 2:
+Nombre : Juan Pablo Gomez Vasquez
+Correo : juanpablogv99@gmail.com
+Rol principal : Desarrollador
+Rol secundario : Analista
+
 Integrante 4:
 Nombre : Melina Esther Navarro Rojano
 correo : melynaro@outlook.com
