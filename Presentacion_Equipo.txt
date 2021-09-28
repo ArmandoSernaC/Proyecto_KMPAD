@@ -23,4 +23,4 @@ Integrante 5:
 Nombre: Daniel Steven Osorno Ortiz
 correo: danielosorno1996@gmail.com
 Rol designado: Desarrollador Principal
-Rol secundario: Administrador de BD
+Rol secundario: Administrador de BD y.
