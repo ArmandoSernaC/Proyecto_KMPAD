@@ -1,0 +1,26 @@
+
+
+#Espacio donde cada integrante se presentará:
+
+Integrante 1:
+Nombre : Armando Serna Contreras
+Correo : armandoserna4@hotmail.com
+Rol Principal: Desarrollador Principal. 
+
+Integrante 2:
+Nombre : Juan Pablo Gomez Vasquez
+Correo : juanpablogv99@gmail.com
+Rol principal : Desarrollador
+Rol secundario : Analista
+
+Integrante 4:
+Nombre : Melina Esther Navarro Rojano
+correo : melynaro@outlook.com
+Rol Principal : Desarrollador
+Rol Secundario : Scrum Master
+
+Integrante 5:
+Nombre: Daniel Steven Osorno Ortiz
+correo: danielosorno1996@gmail.com
+Rol designado: Desarrollador Principal
+Rol secundario: Administrador de BD y.
