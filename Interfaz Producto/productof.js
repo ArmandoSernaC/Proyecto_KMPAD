@@ -165,6 +165,11 @@ function insertarFruta(fruta){
     // Captura el evento que permite ver la información addicional de las frutas
     let  botoneinfo = document.getElementById(`info-${fruta.id }`)
 
+    botoneinfo.addEventListener("click", (event2) =>{
+        rellenarinfo(fruta)
+        }
+    )
+
 
 
     // Captura el evento que permite editar la información frutas
@@ -183,6 +188,10 @@ function insertarFruta(fruta){
         } 
     )
     return fruta
+}
+
+let cerrar = ()=>{
+    document.getElementById("InfoFruta").style.display = "none"
 }
 
 
@@ -395,4 +404,23 @@ if(BtnBuscar){
     })
 }
 
+function rellenarinfo(fruta){
+    let panelinfo = document.getElementById("InfoFruta").style.display="flex"
+
+    let titulo = document.getElementById("tituloinfo");
+    titulo.innerText = `Producto # ${fruta.id}`
+
+    let producto = document.getElementById("nombreFruta");
+    producto.innerText = `Fruta: ${fruta.namefruit}`
+
+    let precio = document.getElementById("preciofruta");
+    precio.innerText = `Precio por unidad: $${fruta.Unitcost}`
+
+    let fecha = document.getElementById("fecharegistro");
+    fecha.innerText = `Fecha de registro: ${fruta.fecha}`
+
+    let cantidad = document.getElementById("cantidadregistrada");
+    cantidad.innerText =`Cantidad registrada: ${fruta.amount}`
+
+}
  
