@@ -90,7 +90,7 @@ function registrarFruta(Form1,Form2){
         insertarFruta(fruta)
         swal("Muy bien!", "El registro se guardó correctamente!", "success");
     }else{
-        swal("Ops!", "Parece que hubo un error al intentar registrar la venta!", "error")
+        swal("Ops!", "Por favor asegurate de introducir un id de venta valido!", "error")
     }
     
 }
@@ -308,8 +308,8 @@ let autocompletarForm = (id)=>{
 
     document.getElementById("idfrutEdit").value = infofruta.id; 
     document.getElementById("namefrutaEdit").value = infofruta.namefruit
-    document.getElementById("gramoEdit").value = infofruta.gramo
-    document.getElementById("precioEdit").value = infofruta.precio
+    document.getElementById("gramoEdit").value = infofruta.Gramocost
+    document.getElementById("precioEdit").value = infofruta.amount
     document.getElementById("totalCostEdit").value = infofruta.totalCost
 
     document.getElementById("idclientEdit").value = infofruta.idClient;
@@ -413,7 +413,7 @@ function cargarFrutas(){
 let busqueda = (keyWord)=>{
     let isElement = false;
     for(let fruta in lista_frutas){
-        if(lista_frutas[fruta].id == keyWord || lista_frutas[fruta].nameClient  == keyWord ){
+        if(lista_frutas[fruta].id == keyWord || lista_frutas[fruta].nameClient  == keyWord || lista_frutas[fruta].idClient == keyWord ){
             limpiarTabla()
             isElement = true
             insertarFruta(lista_frutas[fruta] )
@@ -475,26 +475,28 @@ function rellenarinfo(fruta){
     titulo.innerText = `Venta #  ${fruta.id}` 
 
     let frutas = document.getElementById("nameefruta");
-    frutas.innerText = `Fruta ${fruta.namefruit}`
+    frutas.innerText = `Fruta: ${fruta.namefruit}`
+
     let gramosf = document.getElementById("gramofruta");
-    gramosf.innerText = `Gramos ${fruta.Gramocost}`
+    gramosf.innerText = `Cantidad: ${fruta.Gramocost}`
+
     let preciofruta = document.getElementById("preciofruta")
-    preciofruta.innerText = `Precio Gramo Fruta ${fruta.amount}`
+    preciofruta.innerText = `Precio Unidad Fruta: ${fruta.amount}`
 
     let totalfruta = document.getElementById("totalfruta")
-    totalfruta.innerText = `Total Compra Fruta ${fruta.totalCost}`
+    totalfruta.innerText = `Total Compra Fruta: ${fruta.totalCost}`
 
     let namecliente = document.getElementById("namecliente")
-    namecliente.innerText = `Nombre Cliente ${fruta.nameClient}`
+    namecliente.innerText = `Nombre Cliente: ${fruta.nameClient}`
 
     let idcliente = document.getElementById("idcliente")
-    idcliente.innerText = `Cedula Cliente ${fruta.idClient}`
+    idcliente.innerText = `Cedula Cliente: ${fruta.idClient}`
 
     let correocliente = document.getElementById("correocliente")
-    correocliente.innerText = `Correo Cliente ${fruta.correoClient}`
+    correocliente.innerText = `Correo Cliente: ${fruta.correoClient}`
 
     let dirrcliente = document.getElementById("dirrcliente")
-    dirrcliente.innerText = `Dirreccion Cliente ${fruta.dirClient}`
+    dirrcliente.innerText = `Dirreccion Cliente: ${fruta.dirClient}`
 
     let idvendedor = document.getElementById("idvendedor")
     idvendedor.innerText = `${fruta.seller}`
@@ -513,6 +515,7 @@ function rellenarinfo(fruta){
     //h5 id="idvendedor"
 
 }
-
-
  
+let cerrar = ()=>{
+    document.getElementById("panel-info").style.display = "none"
+}
