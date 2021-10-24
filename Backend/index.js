@@ -4,6 +4,7 @@ const express = require('express');
 const dotenv = require("dotenv");
 const cors = require("cors");
 const Mongoose = require("mongoose");
+const {product_routes, sales_routes, users_routes} = require("./routes");
 
 //Inicializaación del server y puerto a usar. 
 const app = express();
@@ -27,6 +28,11 @@ Mongoose.connect(uri, option)
 .then(() => {console.log("Base de datos conectada correctamente");})
 .catch((e) => console.log("Error en la conexión a la base de datos:", e));
 
+
+//Uso de las rutas
+app.use("/api/product", product_routes);
+app.use("/api/sales", sales_routes);
+app.use("/api/users", users_routes);
  //Nuestro servidor debe estar escuchando
 app.listen(port, ()=>{
     console.log(`API REST corriendo en puerto ${port}`);
