@@ -24,4 +24,5 @@ verifyEmail = (req, res, next) => {
         next()
     });
 }
+
 module.exports = Object.freeze({verifyTypes, verifyEmail})
