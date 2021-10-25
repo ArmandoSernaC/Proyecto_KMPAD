@@ -18,8 +18,8 @@ const users_schema = new mongoose.Schema({
         required: true
     } ,
     userstatus:  {
-        type: String,
-        required: true
+        type: Boolean,
+        default:false
     }
 })
 module.exports = mongoose.model("users", users_schema  );

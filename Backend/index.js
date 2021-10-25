@@ -30,7 +30,7 @@ Mongoose.connect(uri, option)
 
 
 //Uso de las rutas
-app.use("/api/product", product_routes);
+app.use("/api/products", product_routes);
 app.use("/api/sales", sales_routes);
 app.use("/api/users", users_routes);
 
