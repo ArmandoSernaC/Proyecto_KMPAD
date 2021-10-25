@@ -33,6 +33,7 @@ Mongoose.connect(uri, option)
 app.use("/api/product", product_routes);
 app.use("/api/sales", sales_routes);
 app.use("/api/users", users_routes);
+
  //Nuestro servidor debe estar escuchando
 app.listen(port, ()=>{
     console.log(`API REST corriendo en puerto ${port}`);
