@@ -5,17 +5,17 @@ verifyTypes = (req, res, next) => {
 
     const sale_joi =  joi.object({
         
-        id: joi.number.required() ,
-        namefruit:joi.string.required() ,
-        Unitcost:joi.number.required()  ,
-        amount:joi.number.required() ,
-        totalCost:joi.number.required() ,
-        nameClient: joi.string.required() ,
-        idClient:joi.number.required() ,
-        correoClient: joi.string.required() ,
-        dirClient:joi.string.required()  ,
-        seller:joi.string.required() ,
-        fecha: joi.date.required()
+        id: joi.number().required() ,
+        namefruit:joi.string().required() ,
+        Unitcost:joi.number().required()  ,
+        amount:joi.number().required() ,
+        totalCost:joi.number().required() ,
+        nameClient: joi.string().required() ,
+        idClient:joi.number().required() ,
+        correoClient: joi.string().required() ,
+        dirClient:joi.string().required()  ,
+        seller:joi.string().required() ,
+        fecha: joi.date().required()
 
         
     })

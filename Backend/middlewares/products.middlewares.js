@@ -5,12 +5,12 @@ verifyTypes = (req, res, next) => {
 
     const product_joi =  joi.object({
 
-        id: joi.string.required(),
-        namefruit: joi.string.required(),
-        Unitcost:joi.number.required(), 
-        amount: joi.number.required(),
-        Disponibility: joi.boolean.optional(),
-        fecha:  joi.date.required()
+        id: joi.string().required(),
+        namefruit: joi.string().required(),
+        Unitcost:joi.number().required(), 
+        amount: joi.number().required(),
+        Disponibility: joi.boolean().optional(),
+        fecha:  joi.date().required()
     });
     const {error} = product_joi.validate(req.body);
     if(error) return res.status(400).json({
