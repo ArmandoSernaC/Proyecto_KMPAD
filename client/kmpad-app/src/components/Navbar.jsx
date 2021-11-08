@@ -1,12 +1,14 @@
  
 import React, {Component} from 'react';
 import { getStyleObjectFromString } from "../utils/stringUtils";
+import "./style.css"
+
 class navbar extends React.Component{
+
     render(){
         return (
-            <div>
-                        
-                <nav class="navbar navbar-expand-lg   _3q4or " style={getStyleObjectFromString(" align-items: center; justify-content: space-between; box-shadow: 0 1px 5px 0 #3c6e71; display: flex;  position: relative;     background-color: #ffff;    z-index: 2000; height: 50px; width: 100%;")}>
+            <div class = "_3q4or">                        
+                <nav class="navbar navbar-expand-lg" >
                     <div class="container-fluid ">
                         <div class="d-flex align-items-center justify-content-evenly" style ={{width: "150px"}}>
                             <svg  class="d-flex align-self-center px-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shop-window" viewBox="0 0 16 16">

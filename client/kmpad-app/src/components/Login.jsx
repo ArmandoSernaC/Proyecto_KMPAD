@@ -2,11 +2,13 @@
 import React, {Component} from 'react';
 import { getStyleObjectFromString } from "../utils/stringUtils";
 class App extends React.Component{
+
+    
     render(){
         return(
             
 
-                <div style={getStyleObjectFromString("display: flex; justify-content: center; align-items:initial;")}>      
+                <div style={getStyleObjectFromString("display: flex; justify-content: center;width:100%; height:100%; align-items:initial; background-color:#f0d76d")}>      
                     
                     <div class="rounded-1 shadow-lg  "style={getStyleObjectFromString("position:absolute; background-color:#ffffff; top: 10% ;   display:flex; width:80%; height: 80%; align-items: center;")} >
                         <div class="position-relative" style={{width:"65%", height:"100%" }}>

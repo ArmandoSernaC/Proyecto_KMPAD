@@ -4,9 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const app = () => {
     return (
-        <div>
+    
             <Routes/> 
-        </div>
+         
     )
 }
 

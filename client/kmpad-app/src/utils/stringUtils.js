@@ -22,6 +22,6 @@ export const getStyleObjectFromString = str => {
     style[formattedProperty] = value.trim();
   });
 
-  console.log(style);
+  
   return style;
 };
