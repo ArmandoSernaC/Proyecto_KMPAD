@@ -1,9 +1,23 @@
 import React, {Component} from 'react'
 import { getStyleObjectFromString } from "../utils/stringUtils";
+import Axios from "axios";
 import "./style.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class  Actualizar extends Component{
+
+    actualizar=()=>{
+
+        if(this.props.type == "Ventas"){
+
+        }else if(this.props.type == "Usuarios"){
+
+        }
+        else if(this.props.type == "Productos"){
+            
+        }
+
+    }
  
   cerrar =()=>{
     const id = `panEditar${this.props.type}`
@@ -11,10 +25,7 @@ class  Actualizar extends Component{
     document.getElementById(id).style.display="none";
 }
   render(){   
-      // ------------------------------------------------------------------ 
-      // Cambiar names y id
-      // ------------------------------------------------------------------ 
-      if(this.props.type == "Ventas"){   
+    if(this.props.type == "Ventas"){   
         return (   
             <div id={"panEditar" + this.props.type} className = "panRegistrar" >   
                             
@@ -23,7 +34,7 @@ class  Actualizar extends Component{
                     <div>
                     <div>
                         <h3 style={getStyleObjectFromString("color:#0d6efd; padding: 2%; padding-bottom: 4%; position: relative; text-align: center; justify-content: center")}>
-                        Registrar Venta
+                        Editar Venta
                         </h3>
                     </div>
                     <div style={getStyleObjectFromString("display: flex;  justify-content: space-around; color: #284b63;")}>
@@ -33,17 +44,17 @@ class  Actualizar extends Component{
                         <h4 style={getStyleObjectFromString("padding-bottom:4% ;")} >Información Fruta:</h4>  
 
                             <div>  
-                            <form class="row g-3 buscador" id="infofrutaFormReg">                                       
+                            <form class="row g-3 buscador" id={"FormEdit"+ this.props.type}>                                       
 
                                 <div class="col-12 form-floating">
-                                <input type="number" class="form-control" id="idfrutreg" name="idfrutreg" placeholder="Identificación"/>
-                                <label for="idfrutreg" >Id:</label>                      
+                                <input type="number" class="form-control" id={"frutaEdit"+this.props.type} name={"frutaEdit"+this.props.type} placeholder="Identificación"/>
+                                <label for={"frutaEdit"+this.props.type} >Id:</label>                      
                                 </div>
 
                                 
                                 <div class="col-md-12 form-floating">
-                                <label class="visually-hidden" for="namefrutareg">Nombre</label>
-                                    <select class="form-select" id="namefrutareg" name="namefrutareg">
+                                <label class="visually-hidden" for={"namefrutareg"+this.props.type}>Nombre</label>
+                                    <select class="form-select" id={"namefrutareg"+this.props.type} name={"namefrutareg"+this.props.type}>
                                     <option selected>Seleccionar fruta</option>
                                     <option value="Aguacate">Aguacate</option>
                                     <option value="Arándano">Arándano</option>
@@ -87,21 +98,21 @@ class  Actualizar extends Component{
 
                                 
                                 <div class="col-md-6 form-floating">
-                                <input type="number" class="form-control" id="gramoreg" name="gramoreg" placeholder="Gramos" value="0"/>
-                                <label for="gramoreg" >Gramos</label>
+                                <input type="number" class="form-control" id={"UnidadesEdit"+this.props.type} name={"UnidadesEdit"+this.props.type} placeholder="Unidades" value="0"/>
+                                <label for={"UnidadesEdit"+this.props.type} >Unidades</label>
                                 
                                 </div>
                                 <div class="col-md-6 form-floating">
 
-                                <input type="number" class="form-control" id="precioreg" name="precioreg" placeholder="Precio Gramo" value="0"/>
-                                <label for="precioreg" >Precio Gramo</label>
+                                <input type="number" class="form-control" id={"precioEdit"+this.props.type} name={"precioEdit"+this.props.type} placeholder="Precio unidad" value="0"/>
+                                <label for={"precioEdit"+this.props.type} >Precio unidad</label>
                                 
                                 </div>
 
                                 <div class=" form-floating">                      
-                                <input type="number" class="form-control" id="totalCostreg" name="totalCostreg" placeholder="Precio total" />
+                                <input type="number" class="form-control" id={"totalCostEdit"+this.props.type} name={"totalCostEdit"+this.props.type} placeholder="Precio total" />
                                 
-                                <label for="totalCostreg" >Precio total</label>
+                                <label for={"totalCostEdit"+this.props.type} >Precio total</label>
                                 </div> 
                                                     
                             </form>
@@ -114,34 +125,34 @@ class  Actualizar extends Component{
                         <div  class="px-2" style={getStyleObjectFromString("position:relative;  justify-content: center;")}>
                         <h4  style={getStyleObjectFromString("padding-bottom:4% ;")}>Información Cliente:</h4> 
                         <div>  
-                            <form class="row g-3" id="infoClientFormReg"> 
+                            <form class="row g-3" id={"FormEdit2"+ this.props.type}> 
                             
                             <div class="col-12 form-floating">
-                                <input type="text" class="form-control" id="nameclientreg" name="nameclientreg" placeholder="Nombre"/>
-                                <label for="nameclientreg" >Nombre </label>                      
+                                <input type="text" class="form-control" id={"nameClientEdit"+this.props.type} name={"nameClientEdit"+this.props.type} placeholder="Nombre"/>
+                                <label for={"nameClientEdit"+this.props.type} >Nombre </label>                      
                             </div>
 
 
                             <div class="col-12 form-floating">
-                                <input type="text" class="form-control" id="idclientreg" name="idclientreg" placeholder="Identificación"/>
-                                <label for="idclientreg" >Identificación</label>                    
+                                <input type="text" class="form-control" id={"clientEdit"+this.props.type} name={"clientEdit"+this.props.type} placeholder="Identificación"/>
+                                <label for={"clientEdit"+this.props.type} >Identificación</label>                    
                             </div>
 
                             <div class="col-12 form-floating">
-                                <input type="text" class="form-control" id="correoreg" name="correoreg" placeholder="Correo"/>
-                                <label for="correoreg" >Correo</label>                      
+                                <input type="text" class="form-control" id={"correoEdit"+this.props.type} name={"correoEdit"+this.props.type} placeholder="Correo"/>
+                                <label for={"correoEdit"+this.props.type} >Correo</label>                      
                             </div>
 
                             <div class="col-12 form-floating">
-                                <input type="text" class="form-control" id="dirreg" name="dirreg" placeholder="Dirreccion"/>
-                                <label for="dirreg">Dirreccion</label>                      
+                                <input type="text" class="form-control" id={"dirEdit"+this.props.type} name={"dirEdit"+this.props.type} placeholder="Dirreccion"/>
+                                <label for={"dirEdit"+this.props.type}>Dirreccion</label>                      
                             </div>
 
 
                             
                             <div class="col-md-12 form-floating">
-                                <label class="visually-hidden" for="vendedorreg">Vendedor</label>
-                                <select class="form-select" id="vendedorreg" name="vendedorreg">
+                                <label class="visually-hidden" for={"vendedorEdit"+this.props.type}>Vendedor</label>
+                                <select class="form-select" id={"vendedorEdit"+this.props.type} name={"vendedorEdit"+this.props.type}>
                                 <option selected>Seleccionar vendedor</option>
                                 <option value="Vendedor 1">Vendedor 1</option>
                                 <option value="Vendedor 2">Vendedor 2</option>
@@ -156,7 +167,7 @@ class  Actualizar extends Component{
                                     </button>
                                 </div>
                                 <div  class="px-2 py-2" style={getStyleObjectFromString("width:  110px; position: relative ;left: 32%; justify-content: center;")}>
-                                    <button type="submit" class="btn btn-outline-primary rounded-pill" id="ConfirmarregisBtn" onclick="">
+                                    <button   class="btn btn-outline-primary rounded-pill" id={"confirmarEditBtn"+this.props.type} onclick="">
                                     Aceptar 
                                     </button>
                                 </div>            
@@ -172,40 +183,41 @@ class  Actualizar extends Component{
             
 
         )
-    } else if(this.props.type == "Productos"){
+    }else if(this.props.type == "Productos"){
         return (   
-                <div id={"panRegistrar" + this.props.type} className = "panRegistrar" >                                     
-                  <div class="Formulario-registrar  shadow   Texto-encabezado rounded bg-white w-50"  id = {"reg-form" + this.props.type}>
+            <div id={"panEditar" + this.props.type} className = "panRegistrar" > 
+                                    
+                <div class="Formulario-registrar  shadow   Texto-encabezado rounded bg-white w-50"  id = {"reg-form" + this.props.type}>
                     <div>
                     <div>
                         <h3 style={getStyleObjectFromString("color: #0d6efd; padding: 2%; padding-bottom: 4%; position: relative; text-align: center; justify-content: center;")}>
-                        Registrar Producto
+                        Editar Producto
                         </h3>
                     </div>
                     <div style={getStyleObjectFromString("display: flex; align-items: center; justify-content: space-around; color: #284b63;")}>
                         <div class="px-2 " style={getStyleObjectFromString("position:relative; text-align: center; justify-content: center;")}> 
                           
                             <div>  
-                            <form class="row g-3" id="infofrutaFormReg">                    
+                            <form class="row g-3" id={"FormEdit"+ this.props.type}>                    
                                 <div class="col-12 form-floating">
-                                <input type="text" class="form-control" id="idfrutreg" name="idfrutreg" placeholder="Identificación"/>
-                                <label for="idfrutreg" >Id:</label>
+                                <input type="text" class="form-control" id={"frutEdit"+this.props.type} name={"frutEdit"+this.props.type} placeholder="Identificación"/>
+                                <label for={"frutEdit"+this.props.type} >Id:</label>
                                 
                                 </div>
                                 <div class="col-12 form-floating">
 
-                                <input type="text" class="form-control" id="namefrutareg" name="namefrutareg" placeholder="Nombre"/>
-                                <label for="namefrutareg" >Nombre:</label>                      
+                                <input type="text" class="form-control" id={"namefrutareg"+this.props.type} name={"namefrutareg"+this.props.type} placeholder="Nombre"/>
+                                <label for={"namefrutareg"+this.props.type} >Nombre:</label>                      
                                 </div>
                                 <div class="col-md-6 form-floating">
-                                <input type="number" class="form-control" id="unitCostreg" name="unitCostreg" placeholder="Precio unitario"/>
-                                <label for="unitCostreg" >Precio unitario</label>
+                                <input type="number" class="form-control" id={"precioEdit"+this.props.type} name={"precioEdit"+this.props.type} placeholder="Precio unitario"/>
+                                <label for={"precioEdit"+this.props.type} >Precio unitario</label>
                                 
                                 </div>
                                 <div class="col-md-6 form-floating">
 
-                                <input type="number" class="form-control" id="cantidadreg" name="cantidadreg" placeholder="Cantidad"/>
-                                <label for="cantidadreg" >Cantidad</label>
+                                <input type="number" class="form-control" id={"cantidadEdit"+this.props.type} name={"cantidadEdit"+this.props.type} placeholder="Cantidad"/>
+                                <label for={"cantidadEdit"+this.props.type} >Cantidad</label>
                                 
                                 </div>                 
                                 
@@ -213,12 +225,12 @@ class  Actualizar extends Component{
 
                                 <div class="col-md-6 form-floating">                      
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptionsreg" id="inlineRadio1reg" value="Disponible"/>
-                                    <label class="form-check-label" for="inlineRadio1reg">Disponible</label>
+                                    <input class="form-check-input" type="radio" name={"inlineRadioOptionsEdit"+this.props.type} id={"inlineRadio1Edit"+this.props.type} value="Disponible"/>
+                                    <label class="form-check-label" for={"inlineRadio1Edit"+this.props.type}>Disponible</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptionsreg" id="inlineRadio2reg" value="No Disponible"/>
-                                    <label class="form-check-label" for="inlineRadio2reg">No Disponible</label>
+                                    <input class="form-check-input" type="radio" name={"inlineRadioOptionsEdit"+this.props.type} id={"inlineRadio2Edit"+this.props.type} value="No Disponible"/>
+                                    <label class="form-check-label" for={"inlineRadio2Edit"+this.props.type}>No Disponible</label>
                                 </div>
                                     
                                 
@@ -232,34 +244,45 @@ class  Actualizar extends Component{
                                     </button>
                                     </div>
                                     <div  class="px-2 py-2" style={getStyleObjectFromString("width:  110px; position: relative ;left: 32%; justify-content: center;")}>
-                                    <button type="submit" class="btn btn-outline-primary rounded-pill" id="ConfirmarEditBtn" onclick="">
+                                    <button   class="btn btn-outline-primary rounded-pill" id={"confirmarEditBtn"+this.props.type} onclick="">
                                         Aceptar 
                                     </button>
-                                    </div>                        
-                                  </div>            
+                                    </div>
+                        
                                 </div>
-                              </form>                            
-                            </div>          
-                          </div>                   
+            
+                                </div>
+                            </form>
+
+                            
+                            </div>               
+                        
                         </div>
-                      </div>                    
+
+                    
+                    
                     </div>
-                  </div>
+                    
+
+                    </div>
+                    
+                </div>
+            </div>
 
 
             )
 
 
-    } else if(this.props.type == "Usuarios"){
+    }else if(this.props.type == "Usuarios"){
         return (   
-                <div id={"panRegistrar" + this.props.type} className = "panRegistrar">
+                <div id={"panEditar" + this.props.type} className = "panRegistrar">
                                 
                     <div  class="Formulario-registrar shadow   Texto-encabezado rounded bg-white w-50" id = {"reg-form" + this.props.type}>
-                        
+                         
                             <div >
                                 <div >
                                     <h3 style={getStyleObjectFromString("color: #0d6efd; padding: 2%; padding-bottom: 4%; position: relative; text-align: center; justify-content: center;")}>
-                                        Registrar Usuario
+                                        Editar Usuario
                                     </h3>
                                 </div>
 
@@ -267,7 +290,7 @@ class  Actualizar extends Component{
                                     <div class="px-2" style={getStyleObjectFromString("position:relative; text-align: center; justify-content: center;")}>
                                         
                                         <div>
-                                            <form class="row g-3" id="infopersonaFormReg">
+                                            <form class="row g-3" id={"FormEdit"+ this.props.type}>
                                                 <div class="col-12 form-floating">
                                                     <input type="text" class="form-control" id={"namepersonareg" + this.props.type } name={"namepersonareg" + this.props.type} placeholder="Nombre"/>
                                                     <label for="namepersonareg">Nombre</label>
@@ -284,12 +307,12 @@ class  Actualizar extends Component{
                                                     <label for="correopersonareg">Correo electrónico</label>
                                                 </div>
                                                 <div class="col-md-12 form-floating">
-                                                    <label class="visually-hidden" for="vendedorreg">Vendedor</label>
-                                                    <select class="form-select" id="vendedorreg" name="vendedorreg">
+                                                    <label class="visually-hidden" for={"rolEdit"+this.props.type}>Vendedor</label>
+                                                    <select class="form-select" id={"rolEdit"+this.props.type} name={"rolEdit"+this.props.type}>
                                                     <option selected>Seleccionar rol usuario</option>
                                                     <option value="Administrador">Administrador</option>
                                                     <option value="Vendedor">Vendedor</option>
-                                                    
+                                                     
                                                     </select>
                                                 </div>
                                                 <div class="col-md-12 form-floating">
@@ -303,8 +326,7 @@ class  Actualizar extends Component{
 
                                                         <div class="px-2 py-2"
                                                             style={getStyleObjectFromString("width:  110px; position: relative ;left: 32%; justify-content: center;")}>
-                                                            <button type="submit" class="btn btn-outline-primary rounded-pill"
-                                                                >
+                                                            <button   id = {"confirmarEditBtn"+this.props.type} class="btn btn-outline-primary rounded-pill">
                                                                 Aceptar
                                                             </button>
                                                         </div>
@@ -322,7 +344,7 @@ class  Actualizar extends Component{
                                 </div>
 
                             </div>
-                        
+                         
                     </div>
 
                 </div>
@@ -331,7 +353,6 @@ class  Actualizar extends Component{
 
             )
     }
-
 
     }
 }

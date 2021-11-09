@@ -14,7 +14,7 @@ class Encabezado extends  Component{
     render(){
         return (
              
-                <div class="Panel-Encabezado" style= {{width: "100%"}}>                    
+                <div class="Panel-Encabezado shadow-sm" style= {{width: "100%"}}>                    
                     <div class="d-flex _3mYbO px-5 align-self-center Texto-encabezado">
                         <h1>
                         {this.props.subtitle}

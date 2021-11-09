@@ -77,7 +77,7 @@ function registrarUsuario(Form1) {
         insertUsuario(user)
         swal("Guardado exitosamente.", "El registro se guardó correctamente.", "success");
     } else {
-        swal("Oops! Hay un problema.", "Hubo un error al registrar el usuario. Inténtelo nuevamente.", "error")
+        swal("Oops! Pare que hubo un problema.", "Hubo un error al registrar el usuario. Inténtelo nuevamente.", "error")
     }
 
 }

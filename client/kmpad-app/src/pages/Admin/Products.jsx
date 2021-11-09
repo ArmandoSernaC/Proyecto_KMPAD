@@ -5,6 +5,7 @@ import Busqueda from '../../components/Busqueda';
 import Registro from '../../components/Registro';
 import Tabla from '../../components/Tabla';
 import Noinfo from '../../components/Noinfo';
+import Actualizar from '../../components/Actualizar';
 
 const Products = () => {
     return (
@@ -14,6 +15,7 @@ const Products = () => {
         <Encabezado subtitle = {"Productos"} element = {"nuevo producto"}/>
         <Busqueda subtitle = {"Productos"} />
         <Registro type = {"Productos"}/>
+        <Actualizar type = {"Productos"}/>
         <div class="Panel-registro shadow rounded-top" style={{ display: "flexbox"}}  >
         <Tabla type = {"Productos"}/>
         <Noinfo type = {"Productos"}/>
