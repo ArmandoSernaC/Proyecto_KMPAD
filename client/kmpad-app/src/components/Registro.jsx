@@ -53,7 +53,7 @@ class  Registro  extends Component{
             if(this.props.type == "Ventas"){     
             
                 console.log(this.state.id_add )
-                Axios.post("http://localhost:3001/api/sales/add",{
+                Axios.post("http://localhost:3001/api/sales/add/",{
                     
                     id:this.state.id_add  ,
                     namefruit:this.state.namefruit_add   ,
@@ -70,19 +70,19 @@ class  Registro  extends Component{
                 document.getElementById(`FormReg2${this.props.type}`).reset();
                 swal("Muy bien!", "La venta se registró correctamente!", "success");
             }else if(this.props.type == "Usuarios"){
-
-                Axios.post("http://localhost:3001/api/users/add",{
+                alert(this.state.idperson_add + this.state.nameperson_add  +this.state.emailperson_add +this.state.roleuser_add) ;
+                Axios.post("http://localhost:3001/api/users/add/",{
                     
                     nameperson:this.state.nameperson_add ,
                     idperson:this.state.idperson_add   ,
                     emailperson:this.state.emailperson_add  ,
                     roleuser:this.state.roleuser_add  ,
-                    userstatus:this.state.userstatus_add   ,
+                    userstatus:false   
                         
                 })
                 swal("Muy bien!", "El usuario se registró correctamente!", "success");
             }else if(this.props.type == "Productos"){                      
-                Axios.post("http://localhost:3001/api/products/add",{
+                Axios.post("http://localhost:3001/api/products/add/",{
                     id:this.state.id_add ,
                     namefruit: this.state.namefruit_add ,
                     Unitcost: this.state.Unitcost_add, 
@@ -147,7 +147,7 @@ class  Registro  extends Component{
                                     <form class="row g-3 buscador" id={"FormReg"+ this.props.type}>                                       
 
                                         <div class="col-12 form-floating">
-                                        <input type="number" class="form-control" id={"frutaReg"+this.props.type} name={"frutaReg"+this.props.type} placeholder="Identificación" onChange = {
+                                        <input type="text" class="form-control" id={"frutaReg"+this.props.type} name={"frutaReg"+this.props.type} placeholder="Identificación" onChange = {
                                             (e)=>{ this.setState({id_add: e.target.value}) ;}                                      
                                         }/>
                                         <label for={"frutaReg"+this.props.type} >Id:</label>                      
@@ -202,18 +202,21 @@ class  Registro  extends Component{
 
                                         
                                         <div class="col-md-6 form-floating">
-                                        <input type="number" class="form-control" id={"UnidadesReg"+this.props.type} name={"UnidadesReg"+this.props.type} placeholder="Unidades" value="0" onChange = {
-                                            (e)=>{   this.setState({amount_add: e.target.value});}                                      
+                                        <input type="number" class="form-control" id={"UnidadesReg"+this.props.type} name={"UnidadesReg"+this.props.type} placeholder="Unidades"   onChange = {
+                                            (e)=>{ const c = document.getElementById(`UnidadesReg${this.props.type}`).value;
+                                            const p = document.getElementById(`precioReg${this.props.type}`).value; console.log(p);
+                                            document.getElementById(`totalCostReg${this.props.type}`).value = p*c;    this.setState({amount_add: e.target.value});}                                      
                                         }/>
                                         <label for={"UnidadesReg"+this.props.type} >Unidades</label>
                                         
                                         </div>
                                         <div class="col-md-6 form-floating">
 
-                                        <input type="number" class="form-control" id={"precioReg"+this.props.type} name={"precioReg"+this.props.type} placeholder="Precio unidad" value="0" onChange = {
-                                            (e)=>{const p = document.getElementById(`precioReg${this.props.type}`).value; 
-                                            const c = document.getElementById(`UnidadesReg${this.props.type}`).value; 
-                                            document.getElementById(`UnidadesReg${this.props.type}`).value = p*c;   this.setState({Unitcost_add: e.target.value});}                                      
+                                        <input type="number" class="form-control" id={"precioReg"+this.props.type} name={"precioReg"+this.props.type} placeholder="Precio unidad"   onChange = {
+                                            (e)=>{ this.setState({Unitcost_add: e.target.value});
+                                                const c = document.getElementById(`UnidadesReg${this.props.type}`).value;
+                                            const p = document.getElementById(`precioReg${this.props.type}`).value; console.log(p);
+                                            document.getElementById(`totalCostReg${this.props.type}`).value = p*c; }                                      
                                         }/>
                                         <label for={"precioReg"+this.props.type} >Precio unidad</label>
                                         
@@ -289,7 +292,7 @@ class  Registro  extends Component{
                                             </button>
                                         </div>
                                         <div  class="px-2 py-2" style={getStyleObjectFromString("width:  110px; position: relative ;left: 32%; justify-content: center;")}>
-                                            <button type="button"  class="btn btn-outline-primary rounded-pill" id={"confirmarRegBtn"+this.props.type} onClick={this.agregar}>
+                                            <button type="button"   class="btn btn-outline-primary rounded-pill" id={"confirmarRegBtn"+this.props.type} onClick={this.agregar}>
                                             Aceptar 
                                             </button>
                                         </div>            
@@ -427,7 +430,7 @@ class  Registro  extends Component{
                                                 <div>
                                                     <form class="row g-3" id={"FormReg"+ this.props.type}>
                                                         <div class="col-12 form-floating">
-                                                            <input type="text" class="form-control" id={"namepersonareg" + this.props.type } name={"namepersonareg" + this.props.type} placeholder="Nombre"onChange = {
+                                                            <input type="text" class="form-control" id={"namepersonareg" + this.props.type } name={"namepersonareg" + this.props.type} placeholder="Nombre" onChange = {
                                             (e)=>{ this.setState({nameperson_add: e.target.value}) ;}                                      
                                         } />
                                                             <label for="namepersonareg">Nombre</label>
@@ -435,27 +438,26 @@ class  Registro  extends Component{
                                                         </div>
                                                         <div class="col-12 form-floating">
 
-                                                            <input type="number" class="form-control" id={"idpersonareg" + this.props.type} name={"idpersonareg" + this.props.type }placeholder="Identificación" onChange = {
+                                                            <input type="text" class="form-control" id={"idpersonareg" + this.props.type} name={"idpersonareg" + this.props.type }placeholder="Identificación" onChange = {
                                             (e)=>{ this.setState({idperson_add: e.target.value}) ;}                                      
                                         }/>
                                                             <label for="idpersonareg">Identificación</label>
                                                         </div>
 
                                                         <div class=" form-floating">
-                                                            <input type="mail" class="form-control" id={"correopersonareg" + this.props.type} name={"correopersonareg"+ this.props.type} placeholder="Correo electrónico" onChange = {
-                                            (e)=>{ this.setState({email_add: e.target.value}) ;}                                      
+                                                            <input type="text" class="form-control" id={"correopersonareg" + this.props.type} name={"correopersonareg"+ this.props.type} placeholder="Correo electrónico" onChange = {
+                                            (e)=>{ this.setState({emailperson_add: e.target.value}) ;}                                      
                                         }/>
                                                             <label for="correopersonareg">Correo electrónico</label>
                                                         </div>
                                                         <div class="col-md-12 form-floating">
                                                             <label class="visually-hidden" for={"rolReg"+this.props.type}>Vendedor</label>
                                                             <select class="form-select" id={"rolReg"+this.props.type} name={"rolReg"+this.props.type} onChange = {
-                                            (e)=>{ this.setState({roluser_add: e.target.value}) ;}                                      
+                                            (e)=>{ this.setState({roleuser_add: e.target.value}) ;}                                      
                                         }>
                                                             <option selected>Seleccionar rol usuario</option>
                                                             <option value="Administrador">Administrador</option>
-                                                            <option value="Vendedor">Vendedor</option>
-                                                             
+                                                            <option value="Vendedor">Vendedor</option>                                                             
                                                             </select>
                                                         </div>
                                                         <div class="col-md-12 form-floating">
@@ -469,7 +471,7 @@ class  Registro  extends Component{
 
                                                                 <div class="px-2 py-2"
                                                                     style={getStyleObjectFromString("width:  110px; position: relative ;left: 32%; justify-content: center;")}>
-                                                                    <button   id = {"confirmarRegBtn"+this.props.type} class="btn btn-outline-primary rounded-pill" onClick={this.agregar}>
+                                                                    <button type="button"  id = {"confirmarRegBtn"+this.props.type} class="btn btn-outline-primary rounded-pill" onClick={this.agregar}>
                                                                         Aceptar
                                                                     </button>
                                                                 </div>

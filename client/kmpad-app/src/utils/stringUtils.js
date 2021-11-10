@@ -12,7 +12,7 @@ const formatStringToCamelCase = str => {
 };
 
 export const getStyleObjectFromString = str => {
-  console.log(str);
+  
   const style = {};
   str.split(";").forEach(el => {
     const [property, value] = el.split(":");

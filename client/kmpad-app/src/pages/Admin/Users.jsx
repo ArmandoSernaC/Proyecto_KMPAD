@@ -13,7 +13,7 @@ const users = () => {
             <Encabezado subtitle = {"Usuarios"} element = {"nuevo usuario"}/>
             <Busqueda subtitle = {"Usuarios"} />
             <Registro type = {"Usuarios"}/>
-            <Actualizar type = {"Productos"}/>
+            <Actualizar type = {"Usuarios"}/>
             <div class="Panel-registro shadow rounded-top" style={{ display: "flexbox"}}  >
             <Tabla type = {"Usuarios"}/>
             <Noinfo type = {"Usuarios"}/>    

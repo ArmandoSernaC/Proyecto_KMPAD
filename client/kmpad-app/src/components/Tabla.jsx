@@ -126,7 +126,7 @@ class  Tabla extends Component{
                     {value.totalCost}
                   </td>
                   <td>
-                    <Botones type = {this.props.type}  id={value.id}/> 
+                    <Botones info = {value} type = {this.props.type}  id={value.id}/> 
                   </td>
                 </tr> 
             )
@@ -177,7 +177,7 @@ class  Tabla extends Component{
                   </td>            
                   
                   <td>
-                    <Botones type = {this.props.type} id={value.id}/> 
+                    <Botones info = {value} type = {this.props.type} id={value.id}/> 
                   </td>
                 </tr> 
             )
@@ -229,7 +229,7 @@ class  Tabla extends Component{
                     {value.userstatus.toString()}
                   </td>
                   <td>
-                    <Botones type = {this.props.type} id={value.emailperson}/> 
+                    <Botones info = {value} type = {this.props.type} id={value.emailperson}/> 
                   </td>
                 </tr> 
             )
