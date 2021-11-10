@@ -1,0 +1,142 @@
+
+.Panel-registro {
+  width: 85%;
+  height:440px ;
+  background-color: #fff;
+  text-align: center;
+
+}
+
+.no-data{
+  display:flex;
+  flex-wrap: wrap;  
+  justify-content: center;   
+  left: 0%;    
+  align-items:center;
+  position: relative;
+  padding: 10px;
+  text-align: center;
+}
+.Panel-Encabezado {   
+    
+    top: 48px; 
+    align-items:center;   
+    background-color: rgb(254, 254, 254);
+    color:  #0d6efd;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 120px;
+    min-height: 120x;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    padding-left: 0%;
+    
+    
+}
+
+
+
+.Texto-encabezado {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    font-weight: var(--wsr-font-weight-medium, 400);
+    font-family: HelveticaNeueW01-55Roma,HelveticaNeueW02-55Roma,HelveticaNeueW10-55Roma,"Helvetica Neue","Helvetica","Arial","\30E1\30A4\30EA\30AA","meiryo","\30D2\30E9\30AE\30CE\89D2\30B4 pro w3","hiragino kaku gothic pro","sans-serif";
+    font-family: var(--wsr-font-family, HelveticaNeueW01-55Roma, HelveticaNeueW02-55Roma, HelveticaNeueW10-55Roma),"Helvetica Neue","Helvetica","Arial","\30E1\30A4\30EA\30AA","meiryo","\30D2\30E9\30AE\30CE\89D2\30B4 pro w3","hiragino kaku gothic pro","sans-serif";
+}
+
+ 
+.navbar{
+    width: 100%;
+}
+._3q4or{    
+    align-items: center;
+    width: fit-content;
+    box-shadow: 0 1px 5px 0 rgb(41 85 115 / 21%);
+    display: flex;
+    height: 48px;
+    justify-content: space-between;
+    position: relative;    
+    z-index: 2000;    
+    background-color: #ffff;   
+    height: 50px; 
+    width: 100%;
+} 
+.btnbuscar{
+  background: #fff; /* color de fondo */
+    color: #0d6efd; /* color de fuente */
+    border: 1px solid #0d6efd; /* tamaño y color de borde */
+    padding: 8px 10px;
+    border-radius: 50rem; /* redondear bordes */
+    position: relative;
+}
+/*** ESTILOS BOTÓN SLIDE LEFT ***/
+.ov-btn-slide-left {
+    background: #fff; /* color de fondo */
+    color: #0d6efd; /* color de fuente */
+    border: 1px solid #0d6efd; /* tamaño y color de borde */
+    padding: 8px 10px;
+    border-radius: 50rem; /* redondear bordes */
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
+  }
+  .ov-btn-slide-left:hover {
+    color: #fff; /* color de fuente hover */
+  }
+  .ov-btn-slide-left::after {
+    content: "";
+    background: #0d6efd; /* color de fondo hover */
+    position: absolute;
+    z-index: -1;
+    padding: 8px 10px;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    right: 100%;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+  }
+  
+  .ov-btn-slide-left:hover::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+  }
+
+  
+.Panel-Busqueda {
+
+  width: 50%;
+  left: 10%;
+  position: relative;     
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 0%;
+
+}
+.panRegistrar{
+  display: none;
+}
+
+.Formulario-registrar{
+
+
+  position: absolute; 
+  left: 26%; 
+  top: 11%; 
+  padding: 2%;
+  /* padding: 33px; ;      */
+  z-index:2;
+}
