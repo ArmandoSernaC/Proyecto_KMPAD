@@ -1,0 +1,12 @@
+
+.Panel-principal{
+    display: flex;
+    background-color: aliceblue;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;    
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    
+}
