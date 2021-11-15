@@ -27,6 +27,11 @@ deleteuser = async (req, res)=>{
     }
 }
 
+// Función a editar
+buscarUsuario =  async (req, res)=>{
+    return res
+}
+
 updateUser = async (req, res)=>{
 
 
@@ -44,5 +49,6 @@ module.exports = Object.freeze({
     getAllusers,
     adduser,
     deleteuser,
-    updateUser
+    updateUser,
+    buscarUsuario 
 })

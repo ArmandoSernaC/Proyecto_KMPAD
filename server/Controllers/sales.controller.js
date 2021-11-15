@@ -3,7 +3,7 @@ const {sales_model} = require('../models');
 getAllsales = (req, res) => {
     sales_model.find().exec((err, sales)=>{
         if(err) return res.status(500).json({error:true, message:err });
-        res.json({sales})
+        res.status(200).json({sales});
     })
 }
 addsale = (req, res) => {

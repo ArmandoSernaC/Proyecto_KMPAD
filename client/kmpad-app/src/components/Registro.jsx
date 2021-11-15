@@ -82,14 +82,20 @@ class  Registro  extends Component{
                         
                 })
                 swal("Muy bien!", "El usuario se registró correctamente!", "success");
-            }else if(this.props.type == "Productos"){                      
+            }else if(this.props.type == "Productos"){   
+
+               alert(this.state.Disponibility_add)      ;             
                 Axios.post("http://localhost:3001/api/products/add/",{
                     id:this.state.id_add ,
                     namefruit: this.state.namefruit_add ,
                     Unitcost: this.state.Unitcost_add, 
                     amount:this.state.amount_add  ,
                     Disponibility: this.state.Disponibility_add ,
+<<<<<<< HEAD
+                    fecha: date ,
+=======
                     fecha: date,
+>>>>>>> 6a1575854cf7df053ca6d4bc41a364742e0474fd
                     
                 })
                 swal("Muy bien!", "El producto se registró correctamente!", "success");
@@ -363,13 +369,21 @@ class  Registro  extends Component{
                                         <div class="col-md-6 form-floating">                      
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name={"inlineRadioOptionsReg"+this.props.type} id={"inlineRadio1Reg"+this.props.type} value="Disponible" onChange = {
+<<<<<<< HEAD
+                                            (e)=>{ this.setState({Disponibility_add:e.target.value}) ;}                                      
+=======
                                             (e)=>{ this.setState({Disponibility_add: "Disponible"}) ;}                                      
+>>>>>>> 6a1575854cf7df053ca6d4bc41a364742e0474fd
                                         }/>
                                             <label class="form-check-label" for={"inlineRadio1Reg"+this.props.type}>Disponible</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name={"inlineRadioOptionsReg"+this.props.type} id={"inlineRadio2Reg"+this.props.type} value="No Disponible" onChange = {
+<<<<<<< HEAD
+                                            (e)=>{ this.setState({Disponibility_add: e.target.value}) ;}                                      
+=======
                                             (e)=>{ this.setState({Disponibility_add: "No disponible"}) ;}                                      
+>>>>>>> 6a1575854cf7df053ca6d4bc41a364742e0474fd
                                         }/>
                                             <label class="form-check-label" for={"inlineRadio2Reg"+this.props.type}>No Disponible</label>
                                         </div>
