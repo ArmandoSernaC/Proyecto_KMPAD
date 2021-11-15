@@ -21,8 +21,8 @@ const product_schema = new mongoose.Schema({
 
     }  ,
     Disponibility:{
-        type: Boolean,
-        default:true
+        type:  String,
+        required: true
 
     }  ,
     fecha: {

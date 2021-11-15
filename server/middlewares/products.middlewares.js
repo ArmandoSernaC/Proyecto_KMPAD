@@ -9,7 +9,7 @@ verifyTypes = (req, res, next) => {
         namefruit: joi.string().required(),
         Unitcost:joi.number().required(), 
         amount: joi.number().required(),
-        Disponibility: joi.boolean().optional(),
+        Disponibility: joi.string().optional(),
         fecha:  joi.date().required()
     });
     const {error} = product_joi.validate(req.body);

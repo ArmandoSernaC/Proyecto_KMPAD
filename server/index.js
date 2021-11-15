@@ -5,10 +5,11 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const Mongoose = require("mongoose");
 const {product_routes, sales_routes, users_routes} = require("./routes");
+const {OAuth2Client} = require("google-auth-library");
 
 //Inicializaación del server y puerto a usar. 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 // configuración variables de entorno
 dotenv.config();
@@ -38,3 +39,35 @@ app.use("/api/users", users_routes);
 app.listen(port, ()=>{
     console.log(`API REST corriendo en puerto ${port}`);
 });
+
+
+// Autenticación ------------------------------------------------------------------------------
+//conexión Auth0 
+const CLIENT_ID = "533716128537-9stkfig6ldfclfa36kgrs08682ed81bk.apps.googleusercontent.com";
+const client = new OAuth2Client(CLIENT_ID);
+async function verify(token){
+    try {
+        const ticket = await client.verifyIdToken({
+            idToken: token,
+            audience: CLIENT_ID
+        })
+        const payload =  ticket.getPayload();
+        const userId = payload["sub"];
+
+        return userId;
+    } catch (error) {
+        console.error(error);
+        return null;
+
+    }
+}
+app.post("/login", async (req, res)=>{
+    const userId = await verify(req.body.token);
+    if (userId){
+        res.json({succes:true, message: "El token es válido"});
+    }else {
+        res.status(400).json({error:true, message: "No se pudo validar el usuario"});
+    }
+
+    
+})
