@@ -1,10 +1,36 @@
 
 import React, {Component} from 'react';
 import { getStyleObjectFromString } from "../utils/stringUtils";
+import GoogleLogin from 'react-google-login';
+import Axios from "axios";
 class App extends React.Component{
 
-    
+    //Función de logeo
+    responseGoogle = (response) => {
+        if (response && response.tokenId){
+            console.log(response);
+            fetch("http://localhost:3001/login",{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body: JSON.stringify({ 
+                    token:response.tokenId,
+                    emai:response.profileObj.email,
+                    nombres:response.profileObj.givenName,
+                    Apellidos:response.profileObj.familyName
+                })               
+            }).catch((err)=>console.error(err))
+            .then((res)=> res.json())
+            .then((respuestaServer)=>{
+                console.log(respuestaServer);
+            })
+        }
+        
+      }
     render(){
+
+
         return(
             
 
@@ -19,15 +45,25 @@ class App extends React.Component{
                                 <img  style ={ getStyleObjectFromString(" padding-bottom: 5%;   width: 180px; height:120px;") }src="./img/image 1.png" alt="Logo Misión tic"/>
                             </div>
                             
-                                <div style={getStyleObjectFromString("font-family:  'Helvetica-Neue', serif; padding-bottom: 15%; text-align: center;    height: fit-content;")}>
-                                    <h2 >Log in to your account</h2>
+                                <div style={getStyleObjectFromString("  padding-bottom: 15%; text-align: center;    height: fit-content;")}>
+                                    <h2 >Ingresar</h2>
                                 </div>
                                             
-                            <div class="px-5" style = {getStyleObjectFromString("position: relative; left:24%;  align-items: center; height: 50px;")}>
+                            {/* <div class="px-5" style = {getStyleObjectFromString("position: relative; left:24%;  align-items: center; height: 50px;")}>
                                 <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark">        
                                 </div>
-                            </div>   
+                            </div>    */}
+                            
+                            <GoogleLogin
+                                        clientId="533716128537-9stkfig6ldfclfa36kgrs08682ed81bk.apps.googleusercontent.com"
+                                        buttonText="Acceder con google"
+                                        onSuccess={this.responseGoogle}
+                                        onFailure={this.responseGoogle}
+                                        cookiePolicy={'single_host_origin'}
+                                    />
 
+
+{/* 
                             <footer> 
                                 <span>  
                                     "Don't have an account?"  
@@ -36,7 +72,7 @@ class App extends React.Component{
                             <div class="px-5" style={getStyleObjectFromString("height: fit-content; position: relative;top: 15%")}>
                                 <img src="./img/image 2.png" alt="Escudo universidad de antioquia"/>
                             </div>  
-                            </footer> 
+                            </footer>  */}
                         </div>       
                     </div>       
                 </div>
