@@ -21,7 +21,11 @@ const product_schema = new mongoose.Schema({
 
     }  ,
     Disponibility:{
+<<<<<<< HEAD
         type:  String,
+=======
+        type: String,
+>>>>>>> 6a1575854cf7df053ca6d4bc41a364742e0474fd
         required: true
 
     }  ,

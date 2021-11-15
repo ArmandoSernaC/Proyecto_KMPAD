@@ -52,7 +52,8 @@ class  Registro  extends Component{
         try {
             if(this.props.type == "Ventas"){     
             
-                console.log(this.state.id_add )
+                // console.log(this.state.id_add )
+                alert(this.state.totalCost_add);
                 Axios.post("http://localhost:3001/api/sales/add/",{
                     
                     id:this.state.id_add  ,
@@ -90,7 +91,11 @@ class  Registro  extends Component{
                     Unitcost: this.state.Unitcost_add, 
                     amount:this.state.amount_add  ,
                     Disponibility: this.state.Disponibility_add ,
+<<<<<<< HEAD
                     fecha: date ,
+=======
+                    fecha: date,
+>>>>>>> 6a1575854cf7df053ca6d4bc41a364742e0474fd
                     
                 })
                 swal("Muy bien!", "El producto se registró correctamente!", "success");
@@ -218,7 +223,9 @@ class  Registro  extends Component{
                                             (e)=>{ this.setState({Unitcost_add: e.target.value});
                                                 const c = document.getElementById(`UnidadesReg${this.props.type}`).value;
                                             const p = document.getElementById(`precioReg${this.props.type}`).value; console.log(p);
-                                            document.getElementById(`totalCostReg${this.props.type}`).value = p*c; }                                      
+                                            document.getElementById(`totalCostReg${this.props.type}`).value = p*c; 
+                                            this.setState({totalCost_add: parseInt(p*c)});
+                                        }                                      
                                         }/>
                                         <label for={"precioReg"+this.props.type} >Precio unidad</label>
                                         
@@ -226,7 +233,7 @@ class  Registro  extends Component{
 
                                         <div class=" form-floating">                      
                                         <input type="number" class="form-control" id={"totalCostReg"+this.props.type} name={"totalCostReg"+this.props.type} placeholder="Precio total" onChange = {
-                                            (e)=>{  this.setState({totalCost_add: e.target.value});}                                      
+                                            (e)=>{  this.setState({totalCost_add: parseInt(e.target.value)});}                                      
                                         }/>
                                         
                                         <label for={"totalCostReg"+this.props.type} >Precio total</label>
@@ -362,13 +369,21 @@ class  Registro  extends Component{
                                         <div class="col-md-6 form-floating">                      
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name={"inlineRadioOptionsReg"+this.props.type} id={"inlineRadio1Reg"+this.props.type} value="Disponible" onChange = {
+<<<<<<< HEAD
                                             (e)=>{ this.setState({Disponibility_add:e.target.value}) ;}                                      
+=======
+                                            (e)=>{ this.setState({Disponibility_add: "Disponible"}) ;}                                      
+>>>>>>> 6a1575854cf7df053ca6d4bc41a364742e0474fd
                                         }/>
                                             <label class="form-check-label" for={"inlineRadio1Reg"+this.props.type}>Disponible</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name={"inlineRadioOptionsReg"+this.props.type} id={"inlineRadio2Reg"+this.props.type} value="No Disponible" onChange = {
+<<<<<<< HEAD
                                             (e)=>{ this.setState({Disponibility_add: e.target.value}) ;}                                      
+=======
+                                            (e)=>{ this.setState({Disponibility_add: "No disponible"}) ;}                                      
+>>>>>>> 6a1575854cf7df053ca6d4bc41a364742e0474fd
                                         }/>
                                             <label class="form-check-label" for={"inlineRadio2Reg"+this.props.type}>No Disponible</label>
                                         </div>
