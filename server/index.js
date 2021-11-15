@@ -8,7 +8,7 @@ const {product_routes, sales_routes, users_routes} = require("./routes");
 
 //Inicializaación del server y puerto a usar. 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 // configuración variables de entorno
 dotenv.config();

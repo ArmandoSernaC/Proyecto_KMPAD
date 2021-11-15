@@ -29,7 +29,7 @@ class  Actualizar extends Component{
                 namefruit_update: "" ,
                 Unitcost_update:0 , 
                 amount_update: 0 ,
-                Disponibility_update:false
+                Disponibility_update:"no disponible"
                     
             };
         }else if (this.props.type == "Usuarios"){
@@ -108,7 +108,7 @@ class  Actualizar extends Component{
                 namefruit:  namefruit_update ,
                 Unitcost:  Unitcost_update, 
                 amount: amount_update  ,
-                Disponibility:  true,
+                Disponibility:  Disponibility_update,
                 fecha: date.toLocaleDateString() ,
                 
             })
