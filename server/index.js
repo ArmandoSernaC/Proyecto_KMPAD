@@ -6,6 +6,7 @@ const cors = require("cors");
 const Mongoose = require("mongoose");
 const {product_routes, sales_routes, users_routes} = require("./routes");
 const {OAuth2Client} = require("google-auth-library");
+const userModel = require('./models/users.model');
 
 //Inicializaación del server y puerto a usar. 
 const app = express();
@@ -64,10 +65,110 @@ async function verify(token){
 app.post("/login", async (req, res)=>{
     const userId = await verify(req.body.token);
     if (userId){
-        res.json({succes:true, message: "El token es válido"});
+        userModel.crearUsuario({
+            email: req.body.emailperson,
+            nombres: req.body.nameperson,
+            activado: false
+        }, (error, usuario) => {
+            if (error) {
+                res.status = 500;
+                res.json({
+                    error: true,
+                    message: error
+                });
+                return;
+            }
+
+            res.json({
+                success: true,
+                message: 'El usuario es valido',
+                usuario: usuario
+            });
+        });
     }else {
         res.status(400).json({error:true, message: "No se pudo validar el usuario"});
     }
 
     
 })
+
+app.post('/actualizarUsuario', async (req, res) => {
+    let userid = await verify(req.headers.token);
+    if (userid) {
+        userModel.actualizarUsuario({
+            email: req.body.emailperson,
+            nombres: req.body.nameperson,
+            rol: req.body.roleuser,
+        }, (error, usuario) => {
+            if (error) {
+                res.status = 500;
+                res.send({
+                    error: true,
+                    message: error
+                });
+                return;
+            }
+
+            res.send({
+                success: true,
+                message: 'El usuario fue actualizado',
+                usuario: usuario
+            });
+        });
+    } else {
+        res.status = 400;
+        res.send({
+            error: true,
+            message: 'No se pudo validar el usuario'
+        });
+    }
+})
+
+app.get('/usuarios', async (req, res) => {
+    if (req.headers.token) {
+        let userid = await verify(req.headers.token);
+        if (userid) {
+            userModel.cargarTodos((error, usuarios) => {
+                if (error) {
+                    res.status = 500;
+                    res.send({
+                        error: true,
+                        message: 'Ocurrio un error en el servidor',
+                        errorMessage: error
+                    });
+                    return;
+                }
+
+                res.send({
+                    success: true,
+                    usuarios: usuarios
+                });
+
+                return;
+            });
+        } else {
+
+            res.status = 400;
+
+            res.send({
+                error: true,
+                message: 'El TOKEN es invalido'
+            });
+        }
+    } else {
+
+        res.status = 400;
+
+        res.send({
+            error: true,
+            message: 'El usuario no esta autorizado NO TOKEN'
+        });
+    }
+
+
+})
+
+
+app.listen(port, () => {
+    console.log(`App listening in port ${port}`);
+});
